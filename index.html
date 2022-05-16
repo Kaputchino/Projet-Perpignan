@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
  
@@ -17,7 +17,13 @@
     </div>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <script>
-        var map = L.map('mapRail').setView([51.505, -0.09], 13);
+        var trainStations={
+            "1": {"lat": 10, "lon":15},
+            "2": {"lat": 20, "lon":15},
+            "3": {"lat": 30, "lon":15}
+
+        };
+        var map = L.map('mapRail').setView([0, 0], 1);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                 // Il est toujours bien de laisser le lien vers la source des données
                 attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
@@ -29,14 +35,18 @@
         var openrailwaymap = new L.TileLayer('http://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png',
             {
                 attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, Style: <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <a href="http://www.openrailwaymap.org/">OpenRailwayMap</a> and OpenStreetMap',
-                minZoom: 2,
-                maxZoom: 19,
+                minZoom: 1,
+                maxZoom: 20,
                 tileSize: 256
             }).addTo(map);
 
 
+        for( trainStation in trainStations){
+            var marqueur = L.marker([trainStations[trainStation].lat,trainStations[trainStation].lat].lon).addTo(map);
+            marqueur.bindPopup("<h1>test</h>");
+        }
     </script>
-
+    
 </body>
 
 
