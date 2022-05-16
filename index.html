@@ -17,12 +17,12 @@
     </div>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <script>
-        var trainStations={
-            "1": {"lat": 10, "lon":15},
-            "2": {"lat": 20, "lon":15},
-            "3": {"lat": 30, "lon":15}
-
-        };
+            var stations = {
+                "Paris": { "lat": 48.852969, "lon": 2.349903 },
+                "Brest": { "lat": 48.383, "lon": -4.500 },
+                "Quimper": { "lat": 48.000, "lon": -4.100 },
+                "Bayonne": { "lat": 43.500, "lon": -1.467 }
+            };
         var map = L.map('mapRail').setView([0, 0], 1);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                 // Il est toujours bien de laisser le lien vers la source des données
@@ -41,10 +41,14 @@
             }).addTo(map);
 
 
-        for( trainStation in trainStations){
-            var marqueur = L.marker([trainStations[trainStation].lat,trainStations[trainStation].lat].lon).addTo(map);
-            marqueur.bindPopup("<h1>test</h>");
-        }
+            for(station in stations){
+                // On crée le marqueur et on lui attribue une popup
+                var marqueur = L.marker([stations[station].lat, stations[station].lon]); //.addTo(carte); Inutile lors de l'utilisation des clusters
+                marqueur.bindPopup("<p>"+station+"</p>");
+                marqueur.addTo(map);
+                // On ajoute le marqueur au tableau
+            }
+
     </script>
     
 </body>
