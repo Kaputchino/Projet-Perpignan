@@ -25,6 +25,11 @@
                 "Quimper": { "lat": 48.000, "lon": -4.100 },
                 "Bayonne": { "lat": 43.500, "lon": -1.467 }
             };
+            var latlngs = [
+            [45.51, -122.68],
+            [37.77, -122.43],
+            [34.04, -118.2]
+            ];
         var map = L.map('mapRail').setView([0, 0], 1);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                 // Il est toujours bien de laisser le lien vers la source des données
@@ -42,8 +47,8 @@
                 tileSize: 256
             }).addTo(map);
 
-
-
+            drawMarker(stations);
+            drawPath(latlngs)
 
 
     </script>
