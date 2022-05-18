@@ -1,5 +1,5 @@
 <?php
-require '../html/header.html';
+require 'html/header.html';
 
 
 
