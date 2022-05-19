@@ -64,6 +64,13 @@
         $resultFirst = mysqli_query($connexion, $requestFirst); 
         foreach ($resultFirst as $valueFirst){
             echo("<script>adaptedDrawMarker(".$valueFirst.");
+            var stations = {
+                'lo': { 'lat': 0,'lon': 2.349903 }
+
+            };
+            drawMarker(stations);
+
+
             </script>");
         
              }
