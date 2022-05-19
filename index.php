@@ -1,6 +1,7 @@
 <?php
-include 'html/index.html';
+include 'php/header.php';
 
+include 'html/index.html';
 echo "welcome";
 $servername = "localhost";
 $username = "root";
@@ -18,7 +19,13 @@ foreach($result as $value){
    $requestFirst="SELECT * FROM `stations` WHERE `id`=".$value["idFirstStation"];
    $resultFirst = mysqli_query($connexion, $requestFirst); 
    foreach ($resultFirst as $valueFirst){
-      echo("adaptedDrawMarker(".$valueFirst.")");
+      echo("
+      <script>
+      adaptedDrawMarker(".$valueFirst.")
+      </script>
+      ");
    }
 }
+
+include 'php/footer.php';
 ?>
