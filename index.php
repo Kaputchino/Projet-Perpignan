@@ -1,4 +1,7 @@
 <?php
+echo('<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+');
+
 include 'html/index.html';
 
 echo "welcome";

@@ -13,3 +13,18 @@ function drawPath(path){
 
     var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 };
+function initMapDBLink(){
+    var mysql = require('mysql');
+
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: ""
+    });
+    
+    con.connect(function(err) {
+    if (err) throw err;
+        console.log("Connected!");
+
+    });
+}
