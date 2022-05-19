@@ -9,7 +9,6 @@ $db = "projetperpignan";
 try {
    $dbh = new PDO('mysql:host=localhost;dbname=projetperpignan', $username, $password);
 
-   $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password, $db);
    // set the PDO error mode to exception
    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    echo "Connected successfully";
