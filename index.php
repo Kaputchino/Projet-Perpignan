@@ -41,7 +41,7 @@
 
 <?php
 
-//include 'html/index.html';
+include 'html/index.html';
 
 echo "welcome";
 $servername = "localhost";
